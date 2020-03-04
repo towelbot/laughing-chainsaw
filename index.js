@@ -23,12 +23,15 @@ const roller = new rpgDiceRoller.DiceRoller();
 
 client.on('message', (msg) => {
   myCommand = String(msg);
+
   //Ignore processing if the message doesn't start with !
   if (myCommand.charAt(0) != "!") {
     return;
   }
   // Remove the !
   myCommand = myCommand.substr(1);
+  // make all lowercase
+  myCommand = myCommand.toLowerCase();
   fs.readFile("theIndex.txt", function (err, data) {
     if (err) throw err;
     //Check to see if the command is to add
@@ -120,8 +123,7 @@ function getRandomInt(min, max) {
 }
 
 client.on('ready', () => {
-  console.log('Bot is now connected');
-
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.login(token);
