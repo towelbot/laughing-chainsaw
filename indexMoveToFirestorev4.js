@@ -119,9 +119,9 @@ function grabFromDB4(docName) {
   return db.collection("users").doc(docName).get()
   .then(function (doc) {
     if (doc.exists) {
-      console.log("Document data:", doc.data());
+      // console.log("Document data:", doc.data());  // Logging
       result = Object.values(doc.data());
-      console.log(result);
+      // console.log(result);  // Logging
       return result;
     } else {
       // doc.data() will be undefined in this case
