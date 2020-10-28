@@ -14,7 +14,7 @@
 
 // Three lines of discord.js requirements, the token is matched to a specific discord development channel
 const Discord = require('discord.js');
-const { token } = require('./config.json');
+// const { token } = require('./config.json');
 const client = new Discord.Client();
 
 // import everything and store it on the `rpgDiceRoller` scope
@@ -64,6 +64,10 @@ client.on('message', async (msg) => {
     return;
   }
 });
+
+// THIS  MUST  BE  THIS  WAY
+
+client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
 
 
 // Core Loop End
