@@ -79,9 +79,7 @@ client.on('message', async (msg) => {
   }
 });
 
-// THIS  MUST  BE  THIS  WAY
 
-client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
 
 
 // Core Loop End
@@ -126,7 +124,9 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.login(token);
+// THIS  MUST  BE  THIS  WAY
+
+client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
 //////////////////////
 // End Essential small functions
 /////////////////////
