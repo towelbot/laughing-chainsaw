@@ -14,7 +14,7 @@
 
 // Three lines of discord.js requirements, the token is matched to a specific discord development channel
 const Discord = require('discord.js');
-// const { token } = require('./config.json');
+const { token } = require('./config.json');
 const client = new Discord.Client();
 
 // import everything and store it on the `rpgDiceRoller` scope
@@ -24,18 +24,7 @@ const roller = new rpgDiceRoller.DiceRoller();
 
 // Initialize firestore
 const admin = require('firebase-admin');
-let serviceAccount = {
-  "type": "service_account",
-  "project_id": "laughing-chainsaw",
-  "private_key_id": process.env.FIREBASE_PRIVATE_KEY_ID,
-  "private_key": process.env.FIREBASE_PRIVATE_KEY,
-  "client_email": process.env.CLIENT_EMAIL,
-  "client_id": process.env.CLIENT_ID,
-  "auth_uri": process.env.AUTH_URI,
-  "token_uri": process.env.TOKEN_URI,
-  "auth_provider_x509_cert_url": process.env.AUTH_PROVIDER_X509_CERT_URL,
-  "client_x509_cert_url": process.env.CLIENT_X509_CERT_URL
-};
+let serviceAccount = require('./serviceAccountKey.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
@@ -75,10 +64,6 @@ client.on('message', async (msg) => {
     return;
   }
 });
-
-// THIS  MUST  BE  THIS  WAY
-
-client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
 
 
 // Core Loop End

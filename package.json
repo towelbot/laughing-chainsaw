@@ -2,9 +2,9 @@
   "name": "laughing-chainsaw",
   "version": "1.0.0",
   "description": "A test discord app",
-  "main": "index.js",
+  "main": "herokuBot.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node herokuBot.js"
   },
   "keywords": [],
   "author": "Talbot",
